@@ -2,30 +2,14 @@ h1{
     text-align: center;
 }
 
-.game-board {
+#content {
     display: flex;
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 20px;
-    font-family: Arial, sans-serif;
+    margin-top: 20px;
 }
-.row {
-    display: flex;
-    align-items: center;
-    margin: 5px 0;
-}
-.label {
-    width: 30px;
-    text-align: right;
-    margin-right: 10px;
-    font-weight: bold;
-}
-.line {
-    stroke: black;
-    stroke-width: 2;
-}
+
 .bead {
-    fill: lightblue;
     stroke: black;
     stroke-width: 1;
     cursor: pointer;
@@ -35,7 +19,10 @@ h1{
     transform: scale(1.2);
 }
 
-/* Platzhalter-Perlen (lightgray) - Neue Regel für Platzhalter */
 .bead.placeholder {
     fill: lightgray; /* Platzhalterfarbe */
+}
+
+.bead.left {
+    fill: lightblue; /* Blaue Perlen für 'left' */
 }
