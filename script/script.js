@@ -1,3 +1,8 @@
+// ### ### ### A U F G A B E N ### ### ####
+// Würfel Ergebnis auswählbar machen
+// es wird nur mit den Würfeln weiter gewürfelt die nicht ausgewählt sind
+// max 3 Würfelrunden je Spielzug
+// wurden alle Perlen einer Zahl nach rechts verschoben beginnt eine neue runde mit 3 Würfeln
 
 let gamedata = {
     "Positions": {
