@@ -33,6 +33,7 @@ let gamedata = {
     
 function init(){
     renderBoard();
+    createDice();
 }   
 
 
@@ -97,6 +98,33 @@ function renderBoard() {
 
     contentDiv.appendChild(svg);
 }
+
+// Diese Funktion erstellt die sechs Quadrate für die Würfelseiten
+function createDice() {
+    const diceDiv = document.getElementById('dice');
+    diceDiv.innerHTML = ''; // Entfernt alle alten Inhalte, bevor neue Würfelseiten erstellt werden
+
+    // Wir erstellen sechs Würfelseiten (Quadrate)
+    for (let i = 0; i < 6; i++) {
+        const diceSide = document.createElement('div');
+        diceSide.classList.add('dice-side');
+        diceSide.id = `diceSide-${i + 1}`; // Jede Seite bekommt eine eigene ID
+
+        diceDiv.appendChild(diceSide);
+    }
+}
+
+// Diese Funktion simuliert das Würfeln, indem sie die Werte für die Würfelseiten verändert
+function rollTheDice() {
+    for (let i = 0; i < 6; i++) {
+        const diceSide = document.getElementById(`diceSide-${i + 1}`);
+        // Zufallswert für jede Würfelseite von 1 bis 6
+        const randomValue = Math.floor(Math.random() * 6) + 1;
+        // Setzen des Werts der Würfelseite (hier durch die Anzeige der Zahl)
+        diceSide.textContent = randomValue;
+    }
+}
+
 
 
 

@@ -26,3 +26,36 @@ h1{
 .bead.left {
     fill: lightblue; /* Blaue Perlen für 'left' */
 }
+
+#dice {
+    display: flex;
+    gap: 10px; /* Abstand zwischen den Quadraten */
+    margin-bottom: 20px; /* Abstand nach den Würfelseiten */
+}
+
+.dice-side {
+    width: 50px; /* Breite des Quadrats */
+    height: 50px; /* Höhe des Quadrats */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgray;
+    border: 2px solid black;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
