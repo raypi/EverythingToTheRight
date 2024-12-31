@@ -99,7 +99,7 @@ function renderBoard() {
     contentDiv.appendChild(svg);
 }
 
-// Diese Funktion erstellt die sechs Quadrate für die Würfelseiten
+// Diese Funktion erstellt die sechs Quadrate für die Würfelseiten und einen Button
 function createDice() {
     const diceDiv = document.getElementById('dice');
     diceDiv.innerHTML = ''; // Entfernt alle alten Inhalte, bevor neue Würfelseiten erstellt werden
@@ -110,20 +110,34 @@ function createDice() {
         diceSide.classList.add('dice-side');
         diceSide.id = `diceSide-${i + 1}`; // Jede Seite bekommt eine eigene ID
 
+        // Platz für das Ergebnis der Seite
+        const numberDisplay = document.createElement('span');
+        numberDisplay.id = `numberDisplay-${i + 1}`;
+        diceSide.appendChild(numberDisplay);
+
         diceDiv.appendChild(diceSide);
+    }
+
+    // Erstellen eines zusätzlichen Buttons
+    const rollButton = document.createElement('button');
+    rollButton.textContent = 'Würfeln';
+    rollButton.id = 'rollDice';
+    rollButton.onclick = rollTheDice; // Der Button ruft die Funktion 'rollTheDice()' auf
+
+    // Fügen Sie den Button unter den Würfelseiten hinzu
+    diceDiv.appendChild(rollButton);
+}
+
+// Diese Funktion wird durch den Button ausgelöst, um die Würfelseiten zu "würfeln"
+function rollTheDice() {
+    // Wir iterieren durch jede der sechs Würfelseiten und aktualisieren sie
+    for (let i = 0; i < 6; i++) {
+        const randomNumber = Math.floor(Math.random() * 6) + 1; // Zufallszahl zwischen 1 und 6
+        const numberDisplay = document.getElementById(`numberDisplay-${i + 1}`);
+        numberDisplay.textContent = randomNumber; // Setze das Würfelergebnis
     }
 }
 
-// Diese Funktion simuliert das Würfeln, indem sie die Werte für die Würfelseiten verändert
-function rollTheDice() {
-    for (let i = 0; i < 6; i++) {
-        const diceSide = document.getElementById(`diceSide-${i + 1}`);
-        // Zufallswert für jede Würfelseite von 1 bis 6
-        const randomValue = Math.floor(Math.random() * 6) + 1;
-        // Setzen des Werts der Würfelseite (hier durch die Anzeige der Zahl)
-        diceSide.textContent = randomValue;
-    }
-}
 
 
 
