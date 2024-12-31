@@ -34,3 +34,8 @@ h1{
 .bead:hover {
     transform: scale(1.2);
 }
+
+/* Platzhalter-Perlen (lightgray) - Neue Regel für Platzhalter */
+.bead.placeholder {
+    fill: lightgray; /* Platzhalterfarbe */
+}
