@@ -79,4 +79,3 @@ function useResults() {
     console.log("Wähle deine Ziffer:");
     console.log("Mögliche Werte: 1 bis 12");
 }
-
