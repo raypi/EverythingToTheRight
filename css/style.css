@@ -27,79 +27,49 @@ h1{
 }
 
 .bead.placeholder {
-    fill: lightgray; /* Platzhalterfarbe */
-}
+    fill: lightgray; /* Platzhalterfarbe
+}*/
 
-.bead.left {
-    fill: lightblue; /* Blaue Perlen für 'left' */
-}
-
-#dice {
-    display: flex;
-    gap: 10px; /* Abstand zwischen den Quadraten */
-    margin-bottom: 20px; /* Abstand nach den Würfelseiten */
-}
-
-.dice-side {
-    width: 50px; /* Breite des Quadrats */
-    height: 50px; /* Höhe des Quadrats */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: lightgray;
-    border: 2px solid black;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-}
-
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-button:hover {
-    background-color: #45a049;
-} */
-
-/* Optionales CSS-Styling */
+/* Container für die Würfel */
 #diceContainer {
     display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
+    justify-content: center; /* Zentriert die Würfel horizontal */
+    align-items: center;    /* Zentriert die Würfel vertikal */
+    flex-wrap: wrap;        /* Würfel umbrechen, wenn sie nicht in eine Zeile passen */
+    gap: 10px;              /* Abstand zwischen den Würfeln */
+    margin: 20px;
 }
+
+/* Einzelner Würfel */
 .dice {
-    width: 50px;
-    height: 50px;
-    background-color: lightgray;
-    border: 2px solid black;
+    width: 60px;           /* Breite des Würfels */
+    height: 60px;          /* Höhe des Würfels */
+    background-color: #f2f2f2; /* Hellgraue Hintergrundfarbe */
+    border: 2px solid #000; /* Schwarzer Rand */
+    border-radius: 8px;    /* Abgerundete Ecken */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 20px;
-    font-weight: bold;
+    justify-content: center; /* Zentriert den Inhalt horizontal */
+    align-items: center;    /* Zentriert den Inhalt vertikal */
+    font-size: 24px;       /* Schriftgröße für die Zahl */
+    font-weight: bold;     /* Fettschrift für die Zahl */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Leichter Schatten für den 3D-Effekt */
 }
-#controls {
-    margin-bottom: 20px;
+
+/* Hover-Effekt für die Würfel */
+.dice:hover {
+    background-color: #dcdcdc; /* Leicht dunkleres Grau beim Hover */
+    cursor: pointer; /* Zeiger ändert sich zu einer Hand */
 }
-#successes {
-    margin-top: 20px;
-}
-button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    margin-right: 10px;
-}
-button:hover {
-    background-color: #45a049;
+
+/* Responsive Anpassung */
+@media (max-width: 600px) {
+    .dice {
+        width: 50px;    /* Kleinere Würfel für kleinere Bildschirme */
+        height: 50px;
+        font-size: 20px;
+    }
+
+    #diceContainer {
+        gap: 8px;       /* Weniger Abstand zwischen Würfeln */
+    }
 }
