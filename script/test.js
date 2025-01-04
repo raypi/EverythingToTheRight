@@ -46,18 +46,25 @@ function useResults() {
 
     // Suche nach direkten Treffern für die Zahlen 1 bis 6
     for (let i = 1; i <= 6; i++) {
-        possibleResults[i] = diceValues.filter(value => value === i);
+        possibleResults[i] = diceValues.filter(value => value === i).map(value => [value]); // Jeder Treffer wird einzeln gespeichert
     }
 
     // Suche nach Kombinationen für die Zahlen 7 bis 12
     for (let target = 7; target <= 12; target++) {
         possibleResults[target] = []; // Initialisiere mit leerem Array
+        const usedIndices = new Set(); // Set zur Nachverfolgung, welche Würfel bereits verwendet wurden
 
-        // Überprüfe alle Paare von Würfeln
         for (let i = 0; i < diceValues.length; i++) {
+            if (usedIndices.has(i)) continue; // Überspringe bereits verwendete Würfel
+
             for (let j = i + 1; j < diceValues.length; j++) {
+                if (usedIndices.has(j)) continue; // Überspringe bereits verwendete Würfel
+
                 if (diceValues[i] + diceValues[j] === target) {
                     possibleResults[target].push([diceValues[i], diceValues[j]]);
+                    usedIndices.add(i); // Markiere die Würfel als verwendet
+                    usedIndices.add(j);
+                    break; // Beende die Suche für dieses Paar, da die Würfel jetzt verwendet sind
                 }
             }
         }
@@ -67,10 +74,13 @@ function useResults() {
     console.log("Mögliche Werte:");
     for (let value = 1; value <= 12; value++) {
         if (value <= 6) {
-            console.log(`${value}: ${possibleResults[value].length > 0 ? possibleResults[value].join(", ") : "Keine"}`);
+            const results = possibleResults[value]
+                .map(pair => pair.join(", ")) // Direkt-Treffer als Werte anzeigen
+                .join("; ");
+            console.log(`${value}: ${results || "Keine"}`);
         } else {
             const combinations = possibleResults[value]
-                .map(pair => pair.join("+"))
+                .map(pair => pair.join("+")) // Kombinationen von Würfeln anzeigen
                 .join(", ");
             console.log(`${value}: ${combinations || "Keine"}`);
         }
