@@ -1,3 +1,12 @@
+// ### ### ### A U F G A B E N ### ### ####
+// es wird nur mit den Würfeln weiter gewürfelt die nicht ausgewählt sind;
+// max 3 Würfelrunden je Spielzug;
+// wird mit einem oder 2 Würfeln alle 6 Würfel mit der ausgewählten Zahl belegt darf noch einmal mit allen 
+// sechs Würfeln gewürfelt werden;
+// wurden alle Perlen einer Zahl nach rechts verschoben [gewürfelt]] beginnt eine neue Runde für den Süieler
+//  mit 3 Würfeln;
+
+
 // Funktion: Initialisierung beim Laden der Seite
 function init() {
     getDiceRound();
